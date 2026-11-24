@@ -22,9 +22,9 @@
   <button class="mb" id="mb" aria-expanded="false" aria-controls="nav">Menu</button>
 </div></header>
 <main id="top">
-<div class="wrap ph"><h1 class="d">Join Titos Society</h1><p>Fill in your details, read the terms, and sign. We’ll make your PDF application and send it to the Titos Society admins.</p></div><section><div class="wrap"><form id="regForm" name="application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate style="max-width:680px">
-  <input type="hidden" name="form-name" value="application"><input type="hidden" name="ref"><input type="file" name="pdf" hidden>
-  <p hidden><label>Leave this empty <input name="bot-field"></label></p>
+<div class="wrap ph"><h1 class="d">Join Titos Society</h1><p>Fill in your details, read the terms, and sign. We’ll make your PDF application and send your details to the Titos Society admins.</p></div><section><div class="wrap"><form id="regForm" action="https://api.web3forms.com/submit" method="POST" novalidate style="max-width:680px">
+  <input type="hidden" name="access_key" value="ce4b5d0b-59e8-4ea6-9308-33b7c50b2457"><input type="hidden" name="subject" value="New Titos Society membership application"><input type="hidden" name="from_name" value="Titos Society website"><input type="hidden" name="ref"><input type="hidden" name="name"><input type="hidden" name="message">
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
   <div id="s1">
     <p class="lead" style="margin-top:0">Thank you for your interest in joining Titos Society! We are a community built around friendship, cars, responsible driving, respect, and a healthy lifestyle. Being a Tito is about mindset, not age or location.</p>
     <div class="fg" style="margin-top:0">
@@ -33,6 +33,7 @@
       <label>Preferred name / nickname<input class="field" name="nickname"></label>
       <label>City / location *<input class="field" name="city" autocomplete="address-level2"></label>
       <label class="full">Phone number *<input class="field" name="phone" type="tel" autocomplete="tel"></label>
+      <label class="full">Email *<input class="field" name="email" type="email" autocomplete="email"></label>
       <label class="full">Facebook profile / contact (optional)<input class="field" name="facebook" placeholder="Facebook link or other contact"></label>
       <label>Vehicle make and model (optional)<input class="field" name="vehicle"></label>
       <label>Plate number (if applicable)<input class="field" name="plate"></label>

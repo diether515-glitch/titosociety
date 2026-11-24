@@ -11,8 +11,9 @@ const v=k=>f[k].value.trim();
 function fail(m,el){err.textContent=m;if(el)el.focus();return false}
 function validate(){
   err.textContent="";form.querySelectorAll(".field").forEach(x=>x.classList.remove("bad"));
-  for(const k of["first","last","city","phone"])if(!v(k)){f[k].classList.add("bad");return fail("Please fill in all required fields.",f[k])}
+  for(const k of["first","last","city","phone","email"])if(!v(k)){f[k].classList.add("bad");return fail("Please fill in all required fields.",f[k])}
   if(!/^[+\d][\d\s()-]{6,}$/.test(v("phone"))){f.phone.classList.add("bad");return fail("Enter a valid phone number.",f.phone)}
+  if(!/^\S+@\S+\.\S+$/.test(v("email"))){f.email.classList.add("bad");return fail("Enter a valid email address.",f.email)}
   if(!ink)return fail("Please sign in the signature box.");
   if(!f.agree.checked)return fail("You must accept the terms and agreements.",f.agree);
   return true}
@@ -29,11 +30,12 @@ form.addEventListener("submit",async e=>{
     const dl=$("#dl");dl.href=URL.createObjectURL(blob);dl.download=name;
     btn.firstChild.textContent="Sending to the admins...";
     let sent=false;
-    try{const fd=new FormData(form);fd.set("form-name","application");fd.set("ref",ref);fd.set("pdf",new File([blob],name,{type:"application/pdf"}));
-      sent=(await fetch("/",{method:"POST",body:fd})).ok}catch(_){}
+    try{const fd=new FormData(form);fd.set("ref",ref);fd.set("name",data.fullName);
+      fd.set("message",`Reference: ${ref}\nDate: ${date}\nName: ${data.fullName}\nNickname: ${data.nickname||"N/A"}\nCity: ${data.city}\nPhone: ${data.phone}\nEmail: ${v("email")}\nFacebook: ${data.facebook||"N/A"}\nVehicle: ${data.vehicle||"N/A"}\nPlate: ${data.plate||"N/A"}\nReason: ${data.reason||"N/A"}\nSigned and accepted the terms and agreements.`);
+      const r=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{Accept:"application/json"},body:fd});sent=(await r.json()).success===true}catch(_){}
     const m=$("#okmsg");
     m.className=sent?"okmsg":"errmsg";
-    m.textContent=sent?`Application ${ref} sent. The Titos Society admins received your details and PDF.`:"We couldn’t send it automatically. Download your PDF below and send it to diether515@gmail.com or on Messenger.";
+    m.textContent=sent?`Application ${ref} sent. The Titos Society admins received your details. Keep your PDF below.`:"We couldn’t send it automatically. Download your PDF below and send it to diether515@gmail.com or on Messenger.";
     $("#s1").hidden=true;$("#s2").hidden=false;$("#s2").scrollIntoView({behavior:"smooth"});
   }catch(x){fail("Something went wrong: "+x.message)}
   finally{btn.disabled=false;btn.firstChild.textContent="Submit application"}

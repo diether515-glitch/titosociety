@@ -32,13 +32,9 @@ Keep every file in the same folder as the `.html` pages (no subfolders). If `sty
 
 ## Registration: PDF and email
 
-The Join page builds a PDF application (with the signature) and sends it with the form details to Netlify Forms.
+The Join page builds a signed PDF application for the applicant to download and sends the application details to Web3Forms, which emails them to the address the access key was created with. The access key is in `join.html` (Web3Forms keys are meant to be public). In the Web3Forms dashboard you can restrict the key to your site's domain.
 
-1. Deploy this repo on Netlify. The form `application` is detected on the first deploy.
-2. In Netlify, open Forms, then Form notifications, then Add notification > Email notification. Choose the `application` form and enter `diether515@gmail.com`.
-3. Every submission, with its PDF attachment, is also stored under Forms > application.
-
-On GitHub Pages or when opened from your computer, there is no form backend, so the PDF only downloads and the page tells the applicant to send it by email or Messenger.
+The PDF itself is not attached to the email. Applicants are offered a Continue to Messenger button so they can send it to the admins.
 
 ## Background photos
 
