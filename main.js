@@ -1,0 +1,10 @@
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const TS={MSG:"https://m.me/61595237911390",send(txt){try{navigator.clipboard.writeText(txt).catch(()=>{})}catch(_){}const w=window.open(TS.MSG,"_blank");if(w)w.opener=null}};
+document.documentElement.classList.add("js");
+const mb=$("#mb"),nav=$("#nav");
+mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+nav.addEventListener("click",e=>{if(e.target.tagName==="A")nav.classList.remove("open")});
+let n=0;const h=$("h1");h.innerHTML=h.textContent.trim().split(/\s+/).map(w=>`<span class="w"><i style="--n:${n++}">${w}</i></span>`).join(" ");
+const tr=$(".track");if(tr)tr.innerHTML=tr.innerHTML.repeat(4);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+$$(".tags b,.vals>div,.tile,details,.about p,.lead,.acts,.qz").forEach(el=>{el.style.setProperty("--d",Math.min([...el.parentNode.children].indexOf(el),6)*90+"ms");el.classList.add("rv");io.observe(el)});

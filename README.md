@@ -10,9 +10,9 @@ Multi-page website for Titos Society, a friendly car and lifestyle community fro
 ## Structure
 
 - `home.html`, `about.html`, `values.html`, `merch.html`, `faq.html`, `join.html`: the pages
-- `css/style.css`: all styles
-- `js/main.js`: shared (menu, animations, Messenger helper); `quiz.js`, `merch.js`, `faq.js`, `join.js`: one file per interactive feature
-- `assets/`: logo and banner
+- `style.css`: all styles
+- `main.js` (shared), `quiz.js`, `merch.js`, `faq.js`, `join.js`: one file per feature
+- `logo.png`, `banner.jpg`: brand images
 - `index.html`: only redirects to `home.html`, because GitHub Pages opens a file with that name at the site root. Delete it if you don’t need it and use `/home.html` as the address.
 
 ## Interactive parts
@@ -25,3 +25,7 @@ Multi-page website for Titos Society, a friendly car and lifestyle community fro
 ## Publish with GitHub Pages
 
 Upload everything, then Settings > Pages > Deploy from a branch > `main` / root.
+
+## Important
+
+Keep every file in the same folder as the `.html` pages (no subfolders). If `style.css`, the `.js` files, or the images are missing from the repo, the site shows as plain unstyled text.
