@@ -1,0 +1,9 @@
+const Q=[["Street racing is fine if the road is empty.",false,"No racing, drifting, or burnouts on public roads, ever."],["Everyone in the car wears a seatbelt.",true,"Seatbelts are part of the Titos rules."],["One drink is okay if you drive slowly.",false,"We never drive under the influence."],["Respect comes first, whatever you drive.",true,"Any car is welcome. Respect is the entry fee."],["A first rule break means a verbal warning.",true,"Then temporary suspension, then removal. Serious violations can mean immediate suspension."]];
+const box=$("#quiz");let i=0,s=0;
+function show(){
+  if(i>=Q.length){box.innerHTML=`<div class="bar"><i style="width:100%"></i></div><h3>You scored ${s} out of ${Q.length}.</h3><p class="fb">${s>=4?"You ride like a Tito. Come join us.":"Good start. Read the code above and try again."}</p><div class="row"><a class="btn p" href="join.html"><span>Register now</span></a><button class="btn g" id="again" type="button"><span>Try again</span></button></div>`;$("#again").onclick=()=>{i=s=0;show()};return}
+  box.innerHTML=`<div class="bar"><i style="width:${i/Q.length*100}%"></i></div><h3>${Q[i][0]}</h3><div class="row"><button class="btn p" data-a="1" type="button"><span>True</span></button><button class="btn g" data-a="0" type="button"><span>False</span></button></div><p class="fb" id="fb"></p>`;
+  box.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{const ok=(b.dataset.a==="1")===Q[i][1];if(ok)s++;box.querySelectorAll("[data-a]").forEach(x=>x.disabled=true);
+    $("#fb").innerHTML=`<b class="${ok?"good":"no"}">${ok?"Correct.":"Not quite."}</b> ${Q[i][2]} <button class="btn p" id="nx" type="button" style="margin-left:8px"><span>${i<Q.length-1?"Next":"See score"}</span></button>`;$("#nx").onclick=()=>{i++;show()};$("#nx").focus()});
+}
+show();
