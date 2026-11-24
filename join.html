@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Join | Titos Society</title>
+<meta name="description" content="Apply to join Titos Society. Your application is sent through Facebook Messenger.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a href="home.html" aria-label="Titos Society home"><img src="assets/logo.png" alt="Titos Society"></a>
+  <nav id="nav" aria-label="Main"><a href="home.html">Home</a><a href="about.html">About</a><a href="values.html">Values</a><a href="merch.html">Merch</a><a href="faq.html">FAQs</a><a href="join.html" class=on aria-current=page>Join</a></nav>
+  <a class="btn p" href="join.html"><span>Register now</span></a>
+  <button class="mb" id="mb" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>
+<main id="top">
+<div class="wrap ph"><h1 class="d">Join Titos Society</h1><p>Fill this in and we’ll take you to our Facebook Messenger to send it to the admins.</p></div><section><div class="wrap"><form id="regForm" novalidate style="max-width:640px">
+  <div id="s1">
+    <div class="fg" style="margin-top:0">
+      <label>First name *<input class="field" name="first" autocomplete="given-name"></label>
+      <label>Last name *<input class="field" name="last" autocomplete="family-name"></label>
+      <label>Nickname<input class="field" name="nick"></label>
+      <label>City or location *<input class="field" name="city" autocomplete="address-level2"></label>
+      <label class="full">Phone number *<input class="field" name="phone" type="tel" autocomplete="tel"></label>
+      <label>Vehicle make and model<input class="field" name="car"></label>
+      <label>Plate number<input class="field" name="plate"></label>
+      <label class="full">Why would you like to join?<textarea class="field" name="why" rows="3"></textarea></label>
+    </div>
+    <label class="chk"><input type="checkbox" name="agree"><span>I accept the terms and agreements of Titos Society, and I will follow its community standards and safety rules. *</span></label>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn p" type="submit"><span>Send via Messenger</span></button>
+  </div>
+  <div id="s2" hidden>
+    <svg class="ok" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="#19e3f5" stroke-width="3"/><path d="M19 33l9 9 17-19" fill="none" stroke="#19e3f5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h2 class="d">Opening Messenger</h2>
+    <p class="lead" style="margin:0 0 14px">Your application is copied. Paste it into the chat with Titos Society and hit send. If Messenger didn’t open, use the button below.</p>
+    <textarea id="out" class="field" rows="7" readonly aria-label="Your application text"></textarea>
+    <div class="acts"><a class="btn p" href="https://m.me/61595237911390" target="_blank" rel="noopener"><span>Open Messenger</span></a></div>
+  </div>
+</form></div></section>
+</main>
+<footer><div class="wrap">
+  <img src="assets/logo.png" alt="Titos Society">
+  <span>Titos Society, Tarlac City, Philippines. Your friendly Titos. No hate. Potpot’an lang sa daan.</span>
+  <span class="soc"><a href="https://www.facebook.com/profile.php?id=61595237911390" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@titos.society" target="_blank" rel="noopener">TikTok</a><a href="https://sites.google.com/view/titosociety/home" target="_blank" rel="noopener">Google Site</a><a href="mailto:titosociety@gmail.com">titosociety@gmail.com</a></span>
+</div></footer>
+<script src="js/main.js" defer></script><script src="js/join.js" defer></script>
+</body>
+</html>
